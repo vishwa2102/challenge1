@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: azure;
+            font-size: 30px;
+        }
+        h1{
+            color: blueviolet;
+            text-align: center;
+        }
+        .color{
+            color: burlywood;
+            text-align: center;
+            font-size: 30px;
+        }
+        button{
+            background-color: chocolate;
+            opacity: 50;
+            font-size: 30px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body align="center">
+    <form>
+        <h1>Sign Up Form</h1>
+        <label class="color">Email :</label>
+        <input type="email" placeholder="Enter email" name="email"><br>
+        <label class="color">Password :</label>
+        <input type="password" placeholder="Enter  password" name="password" maxlength="8"><br>
+        <input type="button" value="Sign Up">
+    </form>
+   
+
+<script>
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
+
+    emailInput.addEventListener('input', function () {
+        if (validateEmail(emailInput.value)) {
+            emailError.textContent = '';
+        } else {
+            emailError.textContent = 'Please enter a valid email address';
+        }
+    });
+
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+</script>
+</body>
+</html>
